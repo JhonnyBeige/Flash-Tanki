@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("jvm") version "1.6.10"
-  kotlin("plugin.jpa") version "1.6.10"
-  kotlin("plugin.allopen") version "1.6.10"
+  kotlin("jvm") version "2.0.0"
+  kotlin("plugin.jpa") version "2.0.0"
+  kotlin("plugin.allopen") version "2.0.0"
   id("com.github.johnrengelman.shadow") version "7.1.2"
   id("org.jetbrains.kotlin.plugin.serialization") version "1.5.31"
   distribution

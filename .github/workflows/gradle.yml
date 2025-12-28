@@ -42,8 +42,8 @@ jobs:
     - name: Archive Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: FlashTanki
-        path: /home/runner/work/FlashTanki/FlashTanki/target/server.jar
+        name: Flash-Tanki
+        path: /home/runner/work/Flash-Tanki/Flash-Tanki/target/server.jar
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
@@ -63,7 +63,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          name: FlashTanki
+          name: Flash-Tanki
           path: /opt
 
       - name: List Artifacts

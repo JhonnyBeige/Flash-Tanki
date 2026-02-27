@@ -187,8 +187,7 @@ class UserSocket(
         command.name != CommandName.ClientMove &&
         command.name != CommandName.ClientFullMove &&
         command.name != CommandName.ClientRotateTurret &&
-        command.name != CommandName.ClientMovementControl &&
-        command.name != CommandName.AddUltimateCharge
+        command.name != CommandName.ClientMovementControl        
       ) { // Too verbose
         if(
           command.name == CommandName.LoadResources ||

@@ -8,14 +8,14 @@ import flashtanki.server.battles.IBattleProcessor
 import flashtanki.server.battles.map.IMapRegistry
 import flashtanki.server.battles.map.get
 import flashtanki.server.battles.mode.*
-import flashtanki.server.bot.discord.*
+// import flashtanki.server.bot.discord.*
 import flashtanki.server.chat.*
 import flashtanki.server.client.*
 import flashtanki.server.commands.Command
 import flashtanki.server.commands.CommandName
 import flashtanki.server.commands.ICommandHandler
 import flashtanki.server.commands.ICommandRegistry
-import flashtanki.server.discord.jda.JDA
+// import flashtanki.server.discord.jda.JDA
 import flashtanki.server.extensions.cast
 import flashtanki.server.extensions.toString
 import flashtanki.server.garage.*

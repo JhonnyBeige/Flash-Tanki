@@ -1000,10 +1000,10 @@ class Server : KoinComponent {
       coroutineScope {
 
         socketServer.run(this)
-        launch { OAuthService().init() }
+        // launch { OAuthService().init() }
         launch { resourceServer.run() }
         launch { apiServer.run() }
-        launch { JDA("MTI0OTI4Mjc2ODc4NjAzMDY1Mw.Gu5v7i.PoyQ4vYXlzieG1lhxKsOblen9fm6-g6cNcAZWM") }
+        // launch { JDA("MTI0OTI4Mjc2ODc4NjAzMDY1Mw.Gu5v7i.PoyQ4vYXlzieG1lhxKsOblen9fm6-g6cNcAZWM") }
 
         ServerStartedMessage().send()
         logger.info("Server started...")

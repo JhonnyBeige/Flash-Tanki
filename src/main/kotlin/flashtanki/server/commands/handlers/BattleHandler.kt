@@ -96,8 +96,8 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val tank = player.tank ?: throw Exception("No Tank")
 
      if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
-      logger.trace { "Invalid tank state for rotate turret: ${tank.state}" }
-    }
+    //  logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
+   //  }
 
     val count = Command(
       CommandName.ClientRotateTurret,
@@ -105,6 +105,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
     ).sendTo(player.battle, exclude = player)
 
     logger.trace { "Synced rotate turret to $count players" }
+     }
   }
 
   @CommandHandler(CommandName.MovementControl)

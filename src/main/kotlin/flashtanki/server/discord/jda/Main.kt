@@ -30,7 +30,7 @@ fun JDA(token: String) {
         .addEventListeners(HelpCommands())
         .addEventListeners(ClearChatCommand())
         .setActivity(Activity.watching("FT???"))
-/       .build()
+        .build()
 
     jda.awaitReady()
 }

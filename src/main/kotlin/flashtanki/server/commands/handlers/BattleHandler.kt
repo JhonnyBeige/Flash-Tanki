@@ -62,8 +62,8 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val tank = player.tank ?: throw Exception("No Tank")
 
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
-    //  logger.warn { "Invalid tank state for movement: ${tank.state}" }
-    // }
+      logger.warn { "Invalid tank state for movement: ${tank.state}" }
+    }
 
     tank.position.copyFrom(data.position.toVector())
     tank.orientation.fromEulerAngles(data.orientation.toVector())
@@ -89,15 +89,15 @@ class BattleHandler : ICommandHandler, KoinComponent {
       logger.trace { "Synced move to $count players" }
     }
   }
-  }
+
   @CommandHandler(CommandName.RotateTurret)
   suspend fun rotateTurret(socket: UserSocket, data: RotateTurretData) {
     val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
     val tank = player.tank ?: throw Exception("No Tank")
 
-     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
-    //  logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
-   //  }
+    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
+      logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
+    }
 
     val count = Command(
       CommandName.ClientRotateTurret,
@@ -105,7 +105,6 @@ class BattleHandler : ICommandHandler, KoinComponent {
     ).sendTo(player.battle, exclude = player)
 
     logger.trace { "Synced rotate turret to $count players" }
-     }
   }
 
   @CommandHandler(CommandName.MovementControl)

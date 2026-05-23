@@ -95,8 +95,8 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
     val tank = player.tank ?: throw Exception("No Tank")
 
-    if(tank.state != TankState.SemiActive && tank.state != TankState.Active) {
-      logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
+    // if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
+    //  logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
     }
 
     val count = Command(

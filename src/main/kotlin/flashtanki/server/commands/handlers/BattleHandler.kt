@@ -62,7 +62,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val tank = player.tank ?: throw Exception("No Tank")
 
     if (tank.state == TankState.Dead) {
-     Command(CommandName.ReadyToRespawn).send(socket)
+     Command(CommandName.ReadyToSpawn).send(socket)
       return
     }
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
@@ -100,7 +100,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val tank = player.tank ?: throw Exception("No Tank")
 
     if (tank.state == TankState.Dead) {
-     Command(CommandName.ReadyToRespawn).send(socket)
+     Command(CommandName.ReadyToSpawn).send(socket)
       return
     }
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {

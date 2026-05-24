@@ -61,7 +61,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
     val tank = player.tank ?: throw Exception("No Tank")
 
-    if (tank.state == DEAD) return
+    if (tank.state == TankState.Dead) return
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
       logger.warn { "Invalid tank state for movement: ${tank.state}" }
     }
@@ -96,7 +96,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
     val tank = player.tank ?: throw Exception("No Tank")
 
-    if (tank.state == DEAD) return
+    if (tank.state == TankState.Dead) return
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
       logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
     }

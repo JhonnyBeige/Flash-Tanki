@@ -62,9 +62,24 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val tank = player.tank ?: throw Exception("No Tank")
 
     
-    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active && tank.state !== TankState.Dead) {
-      logger.warn { "Invalid tank state for movement: ${tank.state}" }
-   
+    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
+    //  logger.warn { "Invalid tank state for movement: ${tank.state}" }
+     Command(CommandName.ReadyToSpawn)
+   suspend fun readyToSpawn(socket: UserSocket) {
+    val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
+    val tank = player.tank ?: throw Exception("No Tank")
+
+    val newTank = player.createTank()
+    newTank.position = tank.position
+    newTank.orientation = tank.orientation
+    newTank.health = newTank.hull.modification.maxHealth
+    delay(1000)
+    newTank.spawn()
+
+    delay(3000)
+    newTank.activate()
+  }
+      
     }
 
     tank.position.copyFrom(data.position.toVector())
@@ -98,9 +113,24 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val tank = player.tank ?: throw Exception("No Tank")
 
   
-    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active && tank.state !== TankState.Dead) {
-     logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
+    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
+     // logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
+   Command(CommandName.ReadyToSpawn)
+   suspend fun readyToSpawn(socket: UserSocket) {
+    val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
+    val tank = player.tank ?: throw Exception("No Tank")
 
+    val newTank = player.createTank()
+    newTank.position = tank.position
+    newTank.orientation = tank.orientation
+    newTank.health = newTank.hull.modification.maxHealth
+    delay(1000)
+    newTank.spawn()
+
+    delay(3000)
+    newTank.activate()
+  }
+      
     }
 
     val count = Command(
@@ -116,8 +146,24 @@ class BattleHandler : ICommandHandler, KoinComponent {
     val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
     val tank = player.tank ?: throw Exception("No Tank")
 
-    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active && tank.state !== TankState.Dead) {
-     logger.warn { "Invalid tank state for movement control: ${tank.state}" }
+    if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
+    // logger.warn { "Invalid tank state for movement control: ${tank.state}" }
+   Command(CommandName.ReadyToSpawn)
+   suspend fun readyToSpawn(socket: UserSocket) {
+    val player = socket.battlePlayer ?: throw Exception("No BattlePlayer")
+    val tank = player.tank ?: throw Exception("No Tank")
+
+    val newTank = player.createTank()
+    newTank.position = tank.position
+    newTank.orientation = tank.orientation
+    newTank.health = newTank.hull.modification.maxHealth
+    delay(1000)
+    newTank.spawn()
+
+    delay(3000)
+    newTank.activate()
+  }
+
   
     }
 

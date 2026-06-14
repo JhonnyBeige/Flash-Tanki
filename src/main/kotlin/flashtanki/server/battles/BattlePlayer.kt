@@ -446,19 +446,15 @@ class BattlePlayer(
 //    tank.prepareToSpawn()
 //=============================================	 
 	  //AI gen
- val oldTank = tank
+val oldTank = tank
     
-    // Create a new tank (increments incarnation)
+    // Create new tank
     val newTank = createTank()
     newTank.position = oldTank?.position ?: Vector3(0.0, 0.0, 1000.0)
     newTank.orientation = oldTank?.orientation ?: Quaternion()
-    newTank.health = newTank.hull.modification.maxHealth
     
-    // Spawn the new tank
-    newTank.spawn()
-    
-    // Activate it after a delay
-    newTank.activate()
-	  
-  }
+    // Prepare it but don't activate yet
+    newTank.updateSpawnPosition()
+    newTank.prepareToSpawn()
+}
 }

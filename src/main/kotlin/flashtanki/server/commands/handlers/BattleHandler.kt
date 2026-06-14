@@ -64,7 +64,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
     
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
       logger.warn { "Invalid tank state for movement: ${tank.state}" }
-   
+    return
     }
 
     tank.position.copyFrom(data.position.toVector())
@@ -100,7 +100,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
   
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
       logger.warn { "Invalid tank state for rotate turret: ${tank.state}" }
-      
+      return
     }
 
     val count = Command(
@@ -118,7 +118,7 @@ class BattleHandler : ICommandHandler, KoinComponent {
 
     if(tank.state != TankState.SemiActive && tank.state !== TankState.Active) {
      logger.warn { "Invalid tank state for movement control: ${tank.state}" }
-    
+    return
     }
 
     val count = Command(

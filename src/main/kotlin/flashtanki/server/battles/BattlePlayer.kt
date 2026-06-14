@@ -441,8 +441,24 @@ class BattlePlayer(
   }
 
   suspend fun respawn() {
-    val tank = tank ?: throw Exception("No Tank")
-    tank.updateSpawnPosition()
-    tank.prepareToSpawn()
+ //   val tank = tank ?: throw Exception("No Tank")
+//    tank.updateSpawnPosition()
+//    tank.prepareToSpawn()
+//=============================================	 
+	  //AI gen
+ val oldTank = tank
+    
+    // Create a new tank (increments incarnation)
+    val newTank = createTank()
+    newTank.position = oldTank?.position ?: Vector3(0.0, 0.0, 1000.0)
+    newTank.orientation = oldTank?.orientation ?: Quaternion()
+    newTank.health = newTank.hull.modification.maxHealth
+    
+    // Spawn the new tank
+    newTank.spawn()
+    
+    // Activate it after a delay
+    newTank.activate()
+	  
   }
 }
